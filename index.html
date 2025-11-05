@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Becoming Gowri 2.0</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #ff9a76 0%, #fad0c4 50%, #ffeaa7 100%);
+            min-height: 100vh;
+            color: #4a3933;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        /* Top Section - Quote */
+        .hero-section {
+            position: relative;
+            padding: 60px 30px 40px;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 100%);
+            border-radius: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(255,154,118,0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-quote {
+            font-size: 26px;
+            font-weight: 600;
+            line-height: 1.4;
+            color: #fff;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+        }
+
+        .sunrise-emoji {
+            font-size: 40px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Vision Section */
+        .vision-section {
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 30px 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #d45d3f;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .vision-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .vision-item {
+            background: rgba(255,255,255,0.4);
+            border-radius: 15px;
+            padding: 20px 15px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .vision-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .vision-icon {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .vision-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: #6b4e3d;
+        }
+
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .keyword {
+            background: linear-gradient(135deg, #ff8a65 0%, #ff6f61 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            box-shadow: 0 3px 10px rgba(255,106,97,0.3);
+        }
+
+        /* Letting Go Section */
+        .letting-go {
+            background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 100%);
+            border-radius: 25px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 2px dashed rgba(255,255,255,0.4);
+        }
+
+        .letting-go-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .letting-go-item {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            border-radius: 12px;
+            font-size: 13px;
+            color: #fff;
+            text-decoration: line-through;
+            opacity: 0.7;
+        }
+
+        /* Daily Steps */
+        .daily-steps {
+            background: rgba(255,255,255,0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 30px 25px;
+            margin-bottom: 25px;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            background: rgba(255,255,255,0.4);
+            padding: 12px 15px;
+            border-radius: 15px;
+            transition: all 0.3s;
+        }
+
+        .step-item:hover {
+            background: rgba(255,255,255,0.6);
+            transform: translateX(5px);
+        }
+
+        .step-icon {
+            font-size: 24px;
+            margin-right: 12px;
+        }
+
+        .step-text {
+            font-size: 15px;
+            font-weight: 500;
+            color: #5a3e31;
+        }
+
+        /* Budget Section */
+        .budget-section {
+            background: linear-gradient(135deg, rgba(255,223,186,0.4) 0%, rgba(255,198,171,0.4) 100%);
+            border-radius: 25px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .budget-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding: 10px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 10px;
+        }
+
+        .budget-text {
+            font-size: 14px;
+            color: #6b4e3d;
+            font-weight: 500;
+        }
+
+        .budget-amount {
+            font-weight: 700;
+            color: #d45d3f;
+        }
+
+        .budget-total {
+            margin-top: 15px;
+            padding: 15px;
+            background: linear-gradient(135deg, #ff8a65 0%, #ff6f61 100%);
+            border-radius: 15px;
+            text-align: center;
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(255,106,97,0.4);
+        }
+
+        .special-days {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 15px;
+            font-weight: 600;
+            color: #d45d3f;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .footer-quote {
+            font-size: 22px;
+            font-weight: 600;
+            color: #fff;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            margin-bottom: 15px;
+        }
+
+        .brand {
+            font-size: 16px;
+            font-weight: 300;
+            color: rgba(255,255,255,0.7);
+            letter-spacing: 2px;
+        }
+
+        /* Decorative Elements */
+        .glow {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .glow-1 {
+            top: -100px;
+            right: -100px;
+        }
+
+        .glow-2 {
+            bottom: 100px;
+            left: -50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <span class="sunrise-emoji">🌅</span>
+            <div class="hero-quote">
+                "I'm not waiting to feel ready — I'm becoming her step by step."
+            </div>
+        </div>
+
+        <!-- Vision Section -->
+        <div class="vision-section">
+            <div class="section-title">✨ My Vision ✨</div>
+            <div class="vision-grid">
+                <div class="vision-item">
+                    <div class="vision-icon">🚶‍♀</div>
+                    <div class="vision-text">Confident</div>
+                </div>
+                <div class="vision-item">
+                    <div class="vision-icon">☕</div>
+                    <div class="vision-text">Calm</div>
+                </div>
+                <div class="vision-item">
+                    <div class="vision-icon">💻</div>
+                    <div class="vision-text">Learning</div>
+                </div>
+                <div class="vision-item">
+                    <div class="vision-icon">🍎</div>
+                    <div class="vision-text">Balanced</div>
+                </div>
+            </div>
+            <div class="keywords">
+                <span class="keyword">Confident</span>
+                <span class="keyword">Calm</span>
+                <span class="keyword">Consistent</span>
+                <span class="keyword">Learning</span>
+                <span class="keyword">Balanced</span>
+            </div>
+        </div>
+
+        <!-- Letting Go Section -->
+        <div class="letting-go">
+            <div class="letting-go-title">🌫 Leaving Behind</div>
+            <div class="letting-go-item">Overthinking food or body</div>
+            <div class="letting-go-item">Feeling guilty after eating</div>
+            <div class="letting-go-item">Skipping goals after one bad day</div>
+            <div class="letting-go-item">Comparing to others' timelines</div>
+        </div>
+
+        <!-- Daily Steps -->
+        <div class="daily-steps">
+            <div class="section-title">📋 Daily Rituals</div>
+            <div class="step-item">
+                <span class="step-icon">☀</span>
+                <span class="step-text">Wake before 6:30</span>
+            </div>
+            <div class="step-item">
+                <span class="step-icon">🍎</span>
+                <span class="step-text">Eat fruit / light breakfast</span>
+            </div>
+            <div class="step-item">
+                <span class="step-icon">🚶‍♀</span>
+                <span class="step-text">Move for 15+ minutes</span>
+            </div>
+            <div class="step-item">
+                <span class="step-icon">💧</span>
+                <span class="step-text">Drink 2–2.5 L water</span>
+            </div>
+            <div class="step-item">
+                <span class="step-icon">📚</span>
+                <span class="step-text">Study / internship work</span>
+            </div>
+            <div class="step-item">
+                <span class="step-icon">🧘‍♀</span>
+                <span class="step-text">Journal / reflection</span>
+            </div>
+            <div class="step-item">
+                <span class="step-icon">🌙</span>
+                <span class="step-text">Sleep before 10:15</span>
+            </div>
+        </div>
+
+        <!-- Budget Section -->
+        <div class="budget-section">
+            <div class="section-title">💰 Weekly Flow</div>
+            <div class="budget-item">
+                <span class="budget-text">☕ Coffee (₹20 × 6 days)</span>
+                <span class="budget-amount">₹120</span>
+            </div>
+            <div class="budget-item">
+                <span class="budget-text">🍽 College lunch (₹110 × 3)</span>
+                <span class="budget-amount">₹330</span>
+            </div>
+            <div class="budget-item">
+                <span class="budget-text">🏠 PG lunch (₹40 × 3) + snack</span>
+                <span class="budget-amount">₹120</span>
+            </div>
+            <div class="budget-item">
+                <span class="budget-text">🥤 Diet Coke (0–2/week)</span>
+                <span class="budget-amount">₹80</span>
+            </div>
+            <div class="budget-total">
+                Weekly Total: ≈₹650
+            </div>
+            <div class="special-days">
+                Saturday = Detox 🧘‍♀ | Sunday = Cheat 🍰
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-quote">
+                "Progress is quiet, but powerful."
+            </div>
+            <div class="brand">BECOMING GOWRI 2.0</div>
+        </div>
+    </div>
+</body>
+</html>
